@@ -31,3 +31,17 @@ console.log(
 // Yr wrtng s mng th wrst 'v vr rd
 console.log(disemvowel('What are you, a communist?'));
 //Wht r y, cmmnst?
+
+// alternative solution using regex
+// function disemvowel(str) {
+//   return str.replace(/[aeiou]/gi, '');
+// }
+
+// alternative solution 
+// function disemvowel(str) {
+//   var vowels = ['a', 'e', 'i', 'o', 'u'];
+  
+//   return str.split('').filter(function(el) {
+//     return vowels.indexOf(el.toLowerCase()) == -1;
+//   }).join('');
+// }
