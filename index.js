@@ -46,19 +46,21 @@ console.log(disemvowel('What are you, a communist?'));
 //   }).join('');
 // }
 
+//function accum
 // This time no story, no theory. The examples below show you how to write function accum:
+// ***************************************************************************************
 
 function accum(s) {
   // your code
   let newString = '';
   for (let i = 0; i < s.length; i++) {
     newString += s[i].toUpperCase();
-    if( i === 0)  newString += '-';
+    if (i === 0) newString += '-';
 
     for (let j = 0; j < i; j++) {
       newString += s[i].toLowerCase();
 
-      if ((i != s.length - 1 && j === i - 1) ) {
+      if (i != s.length - 1 && j === i - 1) {
         newString += '-';
       }
     }
@@ -71,6 +73,30 @@ function accum(s) {
 console.log(accum('abcd')); // -> "A-Bb-Ccc-Dddd"
 console.log(accum('RqaEzty')); //-> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 console.log(accum('cwAt')); // -> "C-Ww-Aaa-Tttt"
-console.log(accum("ZpglnRxqenU"));  //  Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu
+console.log(accum('ZpglnRxqenU')); //  Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu
 
 // The parameter of accum is a string which includes only letters from a..z and A..Z.
+
+//Alternative solution
+// function accum(s) {
+//   return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+// }
+
+// Given a string str, reverse it omitting all non-alphabetic characters.
+// **************************************************************************
+
+// Example
+// For str = "krishan", the output should be "nahsirk".
+
+// For str = "ultr53o?n", the output should be "nortlu".
+// A string consists of lowercase latin letters, digits and symbols.
+
+const reverseStringOnly = (str)=>{
+  let regex = /[a-zA-Z]/;
+  return str.split("").filter(letter=>regex.test(letter)).reverse().join("");
+}
+
+console.log(reverseStringOnly("krishan"));    //nahsirk
+console.log(reverseStringOnly("ultr53o?n"));    //nortlu
+console.log(reverseStringOnly("ab23c"));    //cba
+console.log(reverseStringOnly("krish21an"));    //nahsirk
