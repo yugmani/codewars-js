@@ -91,15 +91,19 @@ console.log(accum('ZpglnRxqenU')); //  Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqq
 // For str = "ultr53o?n", the output should be "nortlu".
 // A string consists of lowercase latin letters, digits and symbols.
 
-const reverseStringOnly = (str)=>{
+const reverseStringOnly = (str) => {
   let regex = /[a-zA-Z]/;
-  return str.split("").filter(letter=>regex.test(letter)).reverse().join("");
-}
+  return str
+    .split('')
+    .filter((letter) => regex.test(letter))
+    .reverse()
+    .join('');
+};
 
-console.log(reverseStringOnly("krishan"));    //nahsirk
-console.log(reverseStringOnly("ultr53o?n"));    //nortlu
-console.log(reverseStringOnly("ab23c"));    //cba
-console.log(reverseStringOnly("krish21an"));    //nahsirk
+console.log(reverseStringOnly('krishan')); //nahsirk
+console.log(reverseStringOnly('ultr53o?n')); //nortlu
+console.log(reverseStringOnly('ab23c')); //cba
+console.log(reverseStringOnly('krish21an')); //nahsirk
 
 //Alternative solution1
 // reverseLetter=(s)=>s.replace(/[^a-z]/gi,'').split('').reverse().join('');
@@ -117,3 +121,19 @@ console.log(reverseStringOnly("krish21an"));    //nahsirk
 // function reverseLetter(str) {
 //   return [...str].reduce((s, c) => /[A-Z]/i.test(c) ? c + s : s, "")
 // }
+
+function removeUrlAnchor(url) {
+  // TODO: complete
+  let result = url.split('');
+
+  let index = result.indexOf('#');
+  console.log(index);
+  let final = [];
+  for (let i = 0; i < index; i++) {
+    final.push(result[i]);
+  }
+
+  return final.join('');
+}
+
+console.log(removeUrlAnchor('www.codewars.com#about'));
