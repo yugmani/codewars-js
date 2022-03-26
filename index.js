@@ -100,3 +100,20 @@ console.log(reverseStringOnly("krishan"));    //nahsirk
 console.log(reverseStringOnly("ultr53o?n"));    //nortlu
 console.log(reverseStringOnly("ab23c"));    //cba
 console.log(reverseStringOnly("krish21an"));    //nahsirk
+
+//Alternative solution1
+// reverseLetter=(s)=>s.replace(/[^a-z]/gi,'').split('').reverse().join('');
+
+//Alternative solution2
+//function reverseLetter(str) {
+//   return str.split('').reverse().filter(function(el) {
+//     if('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(el) != -1) {
+//       return el;
+//     }
+//   }).join('');
+// }
+
+//alternative solution3 using reduce
+// function reverseLetter(str) {
+//   return [...str].reduce((s, c) => /[A-Z]/i.test(c) ? c + s : s, "")
+// }
