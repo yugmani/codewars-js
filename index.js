@@ -126,8 +126,8 @@ function removeUrlAnchor(url) {
   // TODO: complete
   let result = url.split('');
 
-  let index = result.indexOf('#');
-  console.log(index);
+  let index = result.indexOf('#') === -1 ? result.length : result.indexOf('#');
+
   let final = [];
   for (let i = 0; i < index; i++) {
     final.push(result[i]);
@@ -137,3 +137,12 @@ function removeUrlAnchor(url) {
 }
 
 console.log(removeUrlAnchor('www.codewars.com#about'));
+console.log(removeUrlAnchor('www.codewars.com/katas/?page=1#about'));
+console.log(removeUrlAnchor('www.codewars.com/katas/'));
+
+// The best alternative solution
+// function removeUrlAnchor(url){
+//   return url.split('#')[0];
+// }
+
+
