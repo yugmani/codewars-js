@@ -33,18 +33,22 @@ console.log(disemvowel('What are you, a communist?'));
 //Wht r y, cmmnst?
 
 // alternative solution using regex
-// function disemvowel(str) {
-//   return str.replace(/[aeiou]/gi, '');
-// }
+/*
+function disemvowel(str) {
+  return str.replace(/[aeiou]/gi, '');
+}
+*/
 
 // alternative solution
-// function disemvowel(str) {
-//   var vowels = ['a', 'e', 'i', 'o', 'u'];
+/*
+function disemvowel(str) {
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
 
-//   return str.split('').filter(function(el) {
-//     return vowels.indexOf(el.toLowerCase()) == -1;
-//   }).join('');
-// }
+  return str.split('').filter(function(el) {
+    return vowels.indexOf(el.toLowerCase()) == -1;
+  }).join('');
+}
+*/
 
 //function accum
 // This time no story, no theory. The examples below show you how to write function accum:
@@ -78,9 +82,11 @@ console.log(accum('ZpglnRxqenU')); //  Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqq
 // The parameter of accum is a string which includes only letters from a..z and A..Z.
 
 //Alternative solution
-// function accum(s) {
-//   return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
-// }
+/*
+function accum(s) {
+  return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+}
+*/
 
 // Given a string str, reverse it omitting all non-alphabetic characters.
 // **************************************************************************
@@ -109,18 +115,22 @@ console.log(reverseStringOnly('krish21an')); //nahsirk
 // reverseLetter=(s)=>s.replace(/[^a-z]/gi,'').split('').reverse().join('');
 
 //Alternative solution2
-//function reverseLetter(str) {
-//   return str.split('').reverse().filter(function(el) {
-//     if('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(el) != -1) {
-//       return el;
-//     }
-//   }).join('');
-// }
+/*
+function reverseLetter(str) {
+  return str.split('').reverse().filter(function(el) {
+    if('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(el) != -1) {
+      return el;
+    }
+  }).join('');
+}
+*/
 
 //alternative solution3 using reduce
-// function reverseLetter(str) {
-//   return [...str].reduce((s, c) => /[A-Z]/i.test(c) ? c + s : s, "")
-// }
+/*
+function reverseLetter(str) {
+  return [...str].reduce((s, c) => /[A-Z]/i.test(c) ? c + s : s, "")
+}
+*/
 
 function removeUrlAnchor(url) {
   // TODO: complete
@@ -141,9 +151,11 @@ console.log(removeUrlAnchor('www.codewars.com/katas/?page=1#about'));
 console.log(removeUrlAnchor('www.codewars.com/katas/'));
 
 // The best alternative solution
-// function removeUrlAnchor(url){
-//   return url.split('#')[0];
-// }
+/*
+function removeUrlAnchor(url){
+  return url.split('#')[0];
+}
+*/
 
 //Highest possible number
 // ***************************************************
@@ -187,19 +199,34 @@ console.log(factorial(7)); //5040
 console.log(factorial(17)); //355687428096000
 
 //alternative solution
-// function factorial(n){
-//   return n ? n * factorial(n-1) : 1;
-// }
-
+/*
+function factorial(n){
+  return n ? n * factorial(n-1) : 1;
+}
+*/
 
 // You will be given an array and a limit value. You must check that all values in the array are below or equal to the limit value. If they are, return true. Else, return false.
 
 // You can assume all values in the array are numbers.
-function smallEnough(a, limit){
-  return a.every(item=>item<=limit);
+function smallEnough(a, limit) {
+  return a.every((item) => item <= limit);
 }
 
-console.log(smallEnough([66, 101], 200));   //true
-console.log(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100));  //false
+console.log(smallEnough([66, 101], 200)); //true
+console.log(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100)); //false
 console.log(smallEnough([101, 45, 75, 105, 99, 107], 107)); //true
-console.log(smallEnough([80, 117, 115, 104, 45, 85, 112, 115], 120));   //true
+console.log(smallEnough([80, 117, 115, 104, 45, 85, 112, 115], 120)); //true
+
+//alternative solution1
+/*
+function smallEnough(a, limit){
+  return Math.max(...a) <= limit
+}
+*/
+
+//alternative solution2
+/*
+function smallEnough(array, limit){
+    return array.filter( (value) => value > limit ).length > 0 ? false : true;
+}
+*/
