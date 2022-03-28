@@ -165,3 +165,23 @@ console.log(descendingOrder(111)); //111
 console.log(descendingOrder(15)); //51
 console.log(descendingOrder(1021)); //2110
 console.log(descendingOrder(123456789)); //987654321
+
+// Your task is to write function factorial.
+
+// https://en.wikipedia.org/wiki/Factorial
+
+function factorial(n){
+  //your code here
+  let result = 1;
+  for(let i=n; i>0; i--){
+    result *= i;
+  }
+  
+  return result;
+}
+
+console.log(factorial(0));    //1
+console.log(factorial(1));    //1
+console.log(factorial(4));    //24
+console.log(factorial(7));    //5040
+console.log(factorial(17));   //355687428096000
