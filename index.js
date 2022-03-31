@@ -335,3 +335,19 @@ console.log(highAndLow("1 2 3"));   //3 1
 console.log( highAndLow("1 2 3 4 5"));  //5 1
 console.log(highAndLow("1 2 -3 4 5"));  //5 -3
 console.log(highAndLow("1 9 3 4 -5"));    //9 -5
+
+//Alternative solution1
+/*
+function highAndLow(numbers){
+  numbers = numbers.split(' ').map(Number);
+  return Math.max.apply(0, numbers) + ' ' + Math.min.apply(0, numbers);
+}
+*/
+
+//Alternative solution2
+/*
+function highAndLow(numbers){
+  numbers = numbers.split(' ');
+  return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+}
+*/
