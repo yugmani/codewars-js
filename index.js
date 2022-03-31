@@ -280,8 +280,11 @@ String.prototype.toJadenCase = function () {
 };
 */
 
-// Story
+
+//CHECK VALIDITY OF COUPON CODE AND EXPIRATION DATE
 // ********************************************************
+
+// Story
 
 // Your online store likes to give out coupons for special occasions. Some customers try to cheat the system by entering invalid codes or using expired coupons.
 
@@ -290,10 +293,6 @@ String.prototype.toJadenCase = function () {
 // Write a function called checkCoupon which verifies that a coupon code is valid and not expired.
 
 // A coupon is no more valid on the day AFTER the expiration date. All dates will be passed as strings in this format: "MONTH DATE, YEAR".
-
-// Examples:
-// checkCoupon("123", "123", "July 9, 2015", "July 9, 2015")  ===  true
-// checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false
 
 function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
   let cDate = new Date(currentDate);
@@ -312,3 +311,27 @@ function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
   return enteredCode === correctCode && Date.parse(expirationDate) >= Date.parse(currentDate)
 }
 */
+
+//HIGHEST AND LOWEST
+// ********************************************************
+
+// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+// Notes
+// All numbers are valid Int32, no need to validate them.
+// There will always be at least one number in the input string.
+// Output string must be two numbers separated by a single space, and highest number is first.
+function highAndLow(numbers) {
+  // ...
+  let num = numbers.split(' ').map((item) => Number(item));
+  let high = num.reduce((prev, current)=>prev >= current ? prev : current);
+  let low = num.reduce((prev, current)=>prev <= current ? prev : current);
+
+  return `${high} ${low}`;
+}
+
+console.log(highAndLow('8 3 -5 42 -1 0 0 -9 4 7 4 -4'));  //42 -9
+console.log(highAndLow("1 2 3"));   //3 1
+console.log( highAndLow("1 2 3 4 5"));  //5 1
+console.log(highAndLow("1 2 -3 4 5"));  //5 -3
+console.log(highAndLow("1 9 3 4 -5"));    //9 -5
