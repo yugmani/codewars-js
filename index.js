@@ -280,7 +280,6 @@ String.prototype.toJadenCase = function () {
 };
 */
 
-
 // Story
 // ********************************************************
 
@@ -296,15 +295,20 @@ String.prototype.toJadenCase = function () {
 // checkCoupon("123", "123", "July 9, 2015", "July 9, 2015")  ===  true
 // checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false
 
-function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
   let cDate = new Date(currentDate);
   let eDate = new Date(expirationDate);
-  return (enteredCode === correctCode && cDate <= eDate) ? true : false;
+  return enteredCode === correctCode && cDate <= eDate ? true : false;
 }
 
-console.log(checkCoupon('123','123','September 5, 2014','October 1, 2014'));    //true
-console.log(checkCoupon('123a','123','September 5, 2014','October 1, 2014'));   //false
-console.log(checkCoupon("123", "123", "July 9, 2015", "July 9, 2015"));   //true
-console.log( checkCoupon("123", "123", "July 9, 2015", "July 2, 2015"));  //false
+console.log(checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014')); //true
+console.log(checkCoupon('123a', '123', 'September 5, 2014', 'October 1, 2014')); //false
+console.log(checkCoupon('123', '123', 'July 9, 2015', 'July 9, 2015')); //true
+console.log(checkCoupon('123', '123', 'July 9, 2015', 'July 2, 2015')); //false
 
-
+// Alternative solution
+/*
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+  return enteredCode === correctCode && Date.parse(expirationDate) >= Date.parse(currentDate)
+}
+*/
