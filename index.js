@@ -351,3 +351,35 @@ function highAndLow(numbers){
   return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
 }
 */
+
+
+// Thinkful - String Drills: Repeater
+// *********************************************************
+
+// Write a function named repeater() that takes two arguments (a string and a number), and returns a new string where the input string is repeated that many times.
+
+// Example: (Input1, Input2 --> Output)
+
+function repeater(string, n){
+  //Your code goes here.
+  let result = "";
+  for(let i=0; i<n; i++){
+    result += string;
+  }
+  
+  return result;
+}
+
+console.log(repeater('a', 5));    //aaaaa
+console.log(repeater('Na', 16));  //NaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNa
+console.log(repeater('Wub ', 6)); //Wub Wub Wub Wub Wub Wub
+
+//alternative solution1
+/*
+const repeater = (string, n) => {
+  return string.repeat(n);
+}
+*/
+
+//alternative solution2
+// const repeater = (string, n) => string.repeat(n);
