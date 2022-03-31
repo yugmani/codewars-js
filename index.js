@@ -280,7 +280,6 @@ String.prototype.toJadenCase = function () {
 };
 */
 
-
 //CHECK VALIDITY OF COUPON CODE AND EXPIRATION DATE
 // ********************************************************
 
@@ -324,17 +323,17 @@ function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
 function highAndLow(numbers) {
   // ...
   let num = numbers.split(' ').map((item) => Number(item));
-  let high = num.reduce((prev, current)=>prev >= current ? prev : current);
-  let low = num.reduce((prev, current)=>prev <= current ? prev : current);
+  let high = num.reduce((prev, current) => (prev >= current ? prev : current));
+  let low = num.reduce((prev, current) => (prev <= current ? prev : current));
 
   return `${high} ${low}`;
 }
 
-console.log(highAndLow('8 3 -5 42 -1 0 0 -9 4 7 4 -4'));  //42 -9
-console.log(highAndLow("1 2 3"));   //3 1
-console.log( highAndLow("1 2 3 4 5"));  //5 1
-console.log(highAndLow("1 2 -3 4 5"));  //5 -3
-console.log(highAndLow("1 9 3 4 -5"));    //9 -5
+console.log(highAndLow('8 3 -5 42 -1 0 0 -9 4 7 4 -4')); //42 -9
+console.log(highAndLow('1 2 3')); //3 1
+console.log(highAndLow('1 2 3 4 5')); //5 1
+console.log(highAndLow('1 2 -3 4 5')); //5 -3
+console.log(highAndLow('1 9 3 4 -5')); //9 -5
 
 //Alternative solution1
 /*
@@ -352,7 +351,6 @@ function highAndLow(numbers){
 }
 */
 
-
 // Thinkful - String Drills: Repeater
 // *********************************************************
 
@@ -360,18 +358,18 @@ function highAndLow(numbers){
 
 // Example: (Input1, Input2 --> Output)
 
-function repeater(string, n){
+function repeater(string, n) {
   //Your code goes here.
-  let result = "";
-  for(let i=0; i<n; i++){
+  let result = '';
+  for (let i = 0; i < n; i++) {
     result += string;
   }
-  
+
   return result;
 }
 
-console.log(repeater('a', 5));    //aaaaa
-console.log(repeater('Na', 16));  //NaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNa
+console.log(repeater('a', 5)); //aaaaa
+console.log(repeater('Na', 16)); //NaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNa
 console.log(repeater('Wub ', 6)); //Wub Wub Wub Wub Wub Wub
 
 //alternative solution1
@@ -383,3 +381,76 @@ const repeater = (string, n) => {
 
 //alternative solution2
 // const repeater = (string, n) => string.repeat(n);
+
+//Detect Pangram
+// ***********************************
+
+// A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
+
+// Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
+
+// Detect Pangram
+// ******************************************
+
+function isPangram(string) {
+  //...
+  let alphabets = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+  ];
+  let str = string.toLowerCase().split('');
+  // console.log(str);
+  let result = true;
+  alphabets.forEach((item) => {
+    if (str.indexOf(item) === -1) return (result = false);
+  });
+
+  return result;
+}
+
+var string1 = 'The quick brown fox jumps over the lazy dog.';
+console.log(isPangram(string1)); //true
+
+var string2 = 'This is not a pangram.';
+console.log(isPangram(string2)); //false
+var string3 = 'abcdefghijklmopqrstuvwxyz';
+console.log(isPangram(string3)); //false ->missing 'n'
+
+let string4 = 'Pack my box with five dozen liquor jugs.';
+console.log(isPangram(string4)); //true
+
+let string5 = 'How quickly daft jumping zebras vex.';
+console.log(isPangram(string5)); //true
+
+//alternative solution
+/*
+function isPangram(string){
+  return 'abcdefghijklmnopqrstuvwxyz'
+    .split('')
+    .every((x) => string.toLowerCase().includes(x));
+}
+*/
